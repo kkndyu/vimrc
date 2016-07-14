@@ -16,6 +16,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'dyng/ctrlsf.vim'
 
 filetype plugin indent on
 
@@ -64,6 +65,13 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "solarized
 colorscheme solarized
 let g:solarized_termcolors=256
+
+"ctrlsf
+let g:ctrlsf_populate_qflist = 1
+"let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '30%'
+nnoremap <Leader>sp :CtrlSF<CR>
+
 
 set nu
 set ts=4
