@@ -81,6 +81,7 @@ set t_Co=256
 set cursorline
 set cursorcolumn
 set hlsearch
+set sw=4
 "set background=light
 ""set list          " Display unprintable characters f12 - switches
 ""set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping

@@ -1,9 +1,6 @@
-" Highlight Class and Function names
-" copy to ~/.vim/syntax/c.vim
-syn match    cCustomParen    "(" contains=cParen,cCppParen
-syn match    cCustomFunc     "\w\+\s*(" contains=cCustomParen
-syn match    cCustomScope    "::"
-syn match    cCustomClass    "\w\+\s*::" contains=cCustomScope
+" copy to ~/.vim/after/syntax/c/c.vim for .c
+" copy to ~/.vim/after/syntax/cpp/c.vim for .h
 
-hi def link cCustomFunc  Function
-hi def link cCustomClass Function
+" Highlight all function names
+syntax match cCustomFunc /\w\+\s*(/me=e-1,he=e-1
+highlight def link cCustomFunc Function
