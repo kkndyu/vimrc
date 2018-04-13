@@ -39,6 +39,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMoreThanOne=0
 
+map <F9> :MBEbd<CR>
 map <F11> :MBEbp<CR>
 map <F12> :MBEbn<CR>
 
@@ -66,11 +67,31 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 colorscheme solarized
 let g:solarized_termcolors=256
 
+"ctrlp
+let g:ctrlp_match_window = 'min:4,max:100,results=100'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
 "ctrlsf
 let g:ctrlsf_populate_qflist = 1
 "let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '30%'
-nnoremap <Leader>sp :CtrlSF<CR>
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_extra_backend_args = {
+  \ 'ack': '--type=cc',
+  \ 'ag': '--cc'
+  \ }
+nnoremap <leader>f :CtrlSF<CR>
+
+"cscope
+if filereadable("cscope.out")
+    cs add cscope.out
+endif
+nmap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 set nu
