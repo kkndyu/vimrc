@@ -17,6 +17,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dyng/ctrlsf.vim'
+Bundle 'scrooloose/nerdcommenter'
 
 filetype plugin indent on
 
@@ -69,7 +70,7 @@ let g:solarized_termcolors=256
 
 "ctrlp
 let g:ctrlp_match_window = 'min:4,max:100,results=100'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --path-to-ignore ~/.ignore  -g ""'
 
 "ctrlsf
 let g:ctrlsf_populate_qflist = 1
@@ -78,7 +79,7 @@ let g:ctrlsf_winsize = '30%'
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_extra_backend_args = {
   \ 'ack': '--type=cc',
-  \ 'ag': '--cc'
+  \ 'ag': '--path-to-ignore ~/.ignore'
   \ }
 nnoremap <leader>f :CtrlSF<CR>
 
@@ -95,14 +96,17 @@ nmap <Leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 set nu
-set ts=4
-set expandtab
+set ts=8
+set noexpandtab
 set mouse=a
 set t_Co=256
 set cursorline
 set cursorcolumn
 set hlsearch
 set sw=4
+set history=500
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
 "set background=light
 ""set list          " Display unprintable characters f12 - switches
 ""set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
